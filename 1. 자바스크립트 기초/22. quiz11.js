@@ -52,7 +52,7 @@ while (ans !== 0) {
             alert('넌 이문제 평생 못 푼다...넘어가자^^;');
             break;
         }
-        ans = +prompt(`Q${cnt}. ${num1} ${func} ${num2} = ?? *${nthTry}트`);
+        ans = +prompt(`Q${cnt}. ${num1} ${func} ${num2} = ?? *[${nthTry}트]`);
 
         if (ans === 0) {
             alert(`게임을 종료합니다\n--------------------\n정답횟수: ${corr}회, 틀린 횟수: ${wrong}회`);
