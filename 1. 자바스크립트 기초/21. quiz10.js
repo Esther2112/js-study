@@ -26,20 +26,22 @@ while (true) {
     }
 
     var calc = Math.floor(Math.random() * 4);
+    var func = '';
     if (calc === 0) {
         quiz = num1 + num2;
-        calc = '+';
+        func = '+';
     }else if (calc === 1) {
         quiz = num1 - num2;
-        calc = '-';
+        func = '-';
     }else if (calc === 2) {
         quiz = num1 * num2;
-        calc = '*';
+        func = '*';
     }else {
         quiz = num1 / num2;
-        calc = '/';
+        func = '/';
     }
-    ans = +prompt(`Q${cnt}. ${num1} ${calc} ${num2} = ??`);
+    
+    ans = +prompt(`Q${cnt}. ${num1} ${func} ${num2} = ??`);
 
     if (ans === 0) {
         alert(`게임을 종료합니다\n--------------------\n정답횟수: ${corr}회, 틀린 횟수: ${wrong}회`);
