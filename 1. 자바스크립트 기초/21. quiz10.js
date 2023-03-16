@@ -1,11 +1,12 @@
+var HIGH = 1, MIDDLE = 2, LOW = 3;
 var level = +prompt('~~~~~~~~ 재미있는 사칙연산 게임 ~~~~~~~~\n[즐겁게 문제를 푸시다가 지겨우면 0을 누르세요~]\n================================\n난이도를 설정하세요~~\n[1. 상 (1 ~ 100) | 2. 중 (1 ~ 50) | 3. 하 (1 ~ 20)]');
-var n = 0;
-if(level === 1) {
-    n = 100;
-}else if(level === 2) {
-    n = 50;
+var NUMBER_RANGE = 0;
+if(level === HIGH) {
+    NUMBER_RANGE = 100;
+}else if(level === MIDDLE) {
+    NUMBER_RANGE = 50;
 }else {
-    n = 20;
+    NUMBER_RANGE = 20;
 }
 var cnt = 1;
 var corr = 0;
@@ -13,10 +14,10 @@ var wrong = 0;
 var quiz = 0;
 var ans = 0;
 while (true) {
-    var num1 = Math.floor(Math.random() * n) + 1;
-    var num2 = Math.floor(Math.random() * n) + 1;
+    var num1 = Math.floor(Math.random() * NUMBER_RANGE) + 1;
+    var num2 = Math.floor(Math.random() * NUMBER_RANGE) + 1;
     while (num1 === num2) {
-        num2 = Math.floor(Math.random() * n) + 1;
+        num2 = Math.floor(Math.random() * NUMBER_RANGE) + 1;
     }
     if(num2 > num1){
         var temp = num1;
