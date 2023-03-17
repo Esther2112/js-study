@@ -9,10 +9,10 @@
 2. '그만'이라고 입력하면 질문을 멈추고
    입력했던 숫자배열과 숫자의 총합(배열 요소의 합)을 계산하여 출력하세요.
 */
+
 var answer = '';
 var array = [];
 var sum = 0;
-var i = 0;
 while(true) {
     answer = prompt(`배열에 저장할 숫자를 입력하세요.\n'그만' 이라고 입력하면 종료됩니다.`);
     if(answer === '그만') {
@@ -20,6 +20,5 @@ while(true) {
         break;
     }
     array.push(answer);
-    sum += +array[i]; 
-    i++;
+    sum += +answer;
 }
