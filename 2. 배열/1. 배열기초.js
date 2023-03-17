@@ -41,3 +41,23 @@ console.log(`배열의 데이터 수: ${fruits.length}`);
 // };
 
 // console.log(arrayLike);
+
+//선형탐색 : 순차적으로 확인해보면서 찾기
+var target = '바나나';
+for(var i = 0; i < fruits.length; i++){
+    if(fruits[i] === target){
+        console.log(`${target} 과일은 존재함!`);
+        break;
+    }
+    if(i === fruits.length-1){
+        console.log(`${target} 과일은 존재하지 않음!`);
+    }
+}
+
+//for ~ of 반복문 (배열 전용 반복문)
+var weekDays = ['월', '화', '수', '목', '금', '토', '일'];
+console.log('----------------------------------');
+
+for (var day of weekDays) {
+    console.log(`${day}요일`);
+}
