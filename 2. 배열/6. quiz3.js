@@ -19,8 +19,9 @@ while (!!TVXQ.length) {
         alert(`${wannaDelete}은(는) 잘못된 이름입니다\n다시 입력하세요!`);
     } else {
         var wannaPush = prompt(`새로운 멤버 이름을 입력하세요`);
-        var index = TVXQ.indexOf(wannaDelete);
-        TVXQ.splice(index, 1, wannaPush);
+        // var index = TVXQ.indexOf(wannaDelete);
+        // TVXQ.splice(index, 1, wannaPush);
+        TVXQ[TVXQ.indexOf(wannaDelete)] = wannaPush;
         alert(`수정 완료!\n현재 멤버: [${TVXQ}]`);
         break;
     }
