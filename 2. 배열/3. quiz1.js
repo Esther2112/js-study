@@ -19,6 +19,6 @@ while(true) {
         alert(`입력한 숫자 목록: [${array}] \n입력한 숫자 총합: ${sum}`);
         break;
     }
-    array.push(answer);
+    array.push(+answer);
     sum += +answer;
 }
