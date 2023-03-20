@@ -3,13 +3,13 @@
        반환하는 함수 calcNumbersTotalAndAverage를 작성하세요.
 */
 function calcNumbersTotalAndAverage(...numbers){
-    var tot = 0;
+    var total = 0;
     for(var n of numbers) {
-        tot += n;
+        total += n;
     }
     return {
-        total: tot,
-        avg: tot / numbers.length,
+        total, //프로퍼티 키와 값을 담은 변수가 동일할 때 한번만 쓰면 됨
+        avg: total / numbers.length,
     };
 
 }
