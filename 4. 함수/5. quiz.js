@@ -8,16 +8,14 @@ Q. n의 약수의 개수를 구하기
 */
 
 function calcDivisor(n){
-    var count = 0;
     var divisor = [];
     for(var i = 1; i <= n; i++){
         if(n % i === 0) {
-            divisor[count] = i;
-            count++;
+            divisor.push(i);
         }
     }
     console.log(`${n}의 약수: [${divisor}]`);
-    return count;
+    return divisor.length;
 }
 
 // 호출부
