@@ -14,3 +14,15 @@ function multi(n1, n2){
     console.log(`${n1} x ${n2} = ${result}`);
 }
 multi(10, 3);
+
+
+//return 탈출문
+function callName(nickName){
+    var prohibits = ['멍청이', '돌아이', '홍길동'];
+    if(prohibits.includes(nickName)) {
+        console.log(`잘못된 닉네임은 인사를 못해줘 이놈아`);
+        return;
+    }
+    console.log(`${nickName}님 안녕하세요~`);
+}
+callName('돌아이');
