@@ -1,4 +1,3 @@
-
 //multi-parameter: 매개변수가 n개인 경우
 
 //집합 자료구조를 매개변수로 사용
@@ -6,9 +5,9 @@
 
 //n개의 정수를 전달하면 해달 정수의 총합을 구해주는 함수
 //스프레드(ES6)
-function addAll(...numbers){
+function addAll(...numbers) {
     var total = 0;
-    for (var n of numbers){
+    for (var n of numbers) {
         total += n;
     }
     return total;
@@ -20,9 +19,32 @@ var r1 = addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 console.log(`r1: ${r1}`);
 
 
-function foo(arr1, arr2){
+function foo(arr1, arr2) {
 
 }
 
 foo([10, 20], [500, 1000, 1500]);
 //배열 두개를 인수로 전달할 때는 [] 생략시 구분이 불가하므로 매개변수 자리에 ...을 쓸 수 없다.
+
+console.log('=========================================');
+
+//함수의 리턴값은 언제나 하나
+//2개의 정수를 전달하면 덧셈, 뺄셈, 곱셈, 나눗셈의 결과를 리턴받고 싶어
+//결과를 집합 자료구조에 담아서 전달하면 됨 !
+function operateAll(n1, n2) {
+
+    return {
+        plus: addAll(n1, n2), 
+        multiply: n1 * n2, 
+        divide: n1 / n2,
+        minus: n1 - n2, 
+    };
+
+}
+
+var resultSet = operateAll(10, 5);
+console.log(`덧셈결과: ${resultSet.plus}`);
+console.log(`뺄셈결과: ${resultSet.minus}`);
+console.log(`곱셈결과: ${resultSet.multiply}`);
+console.log(`나눗셈결과: ${resultSet.divide}`);
+
