@@ -55,6 +55,7 @@ var userList = userInfo.userList;
 
 //선생님 답안============================================================
 while (true) {
+    //아이디 검증
     var insertedID = prompt('아이디를 입력하세요');
     var foundUser = null; //로그인 시도하는 회원의 정보객체
     for (var user of userList) {
@@ -64,7 +65,9 @@ while (true) {
         }
     }
 
+
     if (foundUser !== null) {
+        //비밀번호 검증
         var insertedPW = prompt(`비밀번호를 입력하세요`);
         if (insertedPW === foundUser.password) {
             alert(`${foundUser.username}님 환영합니다`);
