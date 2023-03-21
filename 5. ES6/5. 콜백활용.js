@@ -1,5 +1,4 @@
-const userList = [
-    {
+const userList = [{
         account: 'abc1234',
         userName: '대길이',
         job: '추노',
@@ -106,26 +105,88 @@ const userList = [
 // console.log(user1);
 
 
-console.log('=================================================');
+// console.log('=================================================');
 
 //배열 고차함수 map()
 //특정 배열에서 특정 조건에 맞는 값들만 따로 모아서 매핑한 배열을 반환
 
-const userNames = userList.map(user => user.address);
-console.log(userNames);
+// const userNames = userList.map(user => user.address);
+// console.log(userNames);
 //userList에서 원하는 프로퍼티값을 매핑하는 함수
-function myMap(m){
-    const mappedArray = [];
-    for(const user of userList) {
-        mappedArray.push(m(user));
+// function myMap(m){
+//     const mappedArray = [];
+//     for(const user of userList) {
+//         mappedArray.push(m(user));
+//     }
+//     return mappedArray;
+// }
+// const userNames2 = myMap(user => user.address);
+// console.log(userNames2);
+
+// console.log('==================================================');
+
+// const appleBasket = [
+//     {
+//         color: 'green',
+//         sweet: 13,
+//     },
+//     {
+//         color: 'red',
+//         sweet: 12,
+//     },
+//     {
+//         color: 'green',
+//         sweet: 5,
+//     },
+//     {
+//         color: 'red',
+//         sweet: 8,
+//     },
+//     {
+//         color: 'green',
+//         sweet: 9,
+//     },
+// ];
+
+// 사과 중 녹색이면서 당도가 9 이상인 사과만 선별하여 이 사과는 xxx색이며 당도가 xx입니다.
+//라는 문자열이 모여있는 배열을 리턴하세요.
+
+// const mappedApple = 
+//         appleBasket
+//             .filter(apple => apple.color === 'green' && apple.sweet >= 9)
+//             .map(apple => `이 사과는 ${apple.color}색이면서 당도는 ${apple.sweet}입니당`);
+// console.log(mappedApple);
+
+
+//userList에서 서울에 사는 애들만 모아서 걔네들의 첫번째 취미만 모아서 배열로 리턴
+const mappedUserHobby =
+    userList
+    .filter(user => user.address === '서울')
+    .map(user => user.hobby[0]);
+console.log(mappedUserHobby);
+
+function filteringUserInfo(list, filtercallback) {
+    const filteredUserArray = [];
+    for (const user of list) {
+        if (filtercallback(user)) {
+            filteredUserArray.push(user);
+        }
     }
-    return mappedArray;
+    return filteredUserArray;
 }
-const userNames2 = myMap(user => user.address);
-console.log(userNames2);
+function mappedUserInfo(list, mapcallback){
+    const mappedUserArray = [];
+    for(const user of list){
+        mappedUserArray.push(mapcallback(user));
+    }
+    return mappedUserArray;
+}
+// const filteredUserArray = filteringUserInfo(userList, user => user.address === '서울');
+// const mappedUserArray = mappedUserInfo(filteredUserArray, user => user.hobby[0]);
+// console.log(mappedUserArray);
 
-
-
-
-
-
+const mappedUserArray = 
+        mappedUserInfo(
+            filteringUserInfo(userList, user => user.address === '서울'), 
+            user => user.hobby[0]);
+console.log(mappedUserArray);
