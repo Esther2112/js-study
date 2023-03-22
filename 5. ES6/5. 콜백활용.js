@@ -188,5 +188,5 @@ function mappedUserInfo(list, mapcallback){
 const mappedUserArray = 
         mappedUserInfo(
             filteringUserInfo(userList, user => user.address === '서울'), 
-            user => user.hobby[0]);
+            user => `${user.userName}회원의 첫번째 취미는 ${user.hobby[0]}입니다`);
 console.log(mappedUserArray);
