@@ -1,5 +1,4 @@
 /*
-
 const counter = (() => {
     let count = 0;
 
@@ -10,7 +9,11 @@ const counter = (() => {
 })();
 
 const { increase, decrease } = counter;
+console.log(increase());
+console.log(increase());
+console.log(decrease());
 */
+
 /*
 function counterWithCbClosure() {
     
@@ -29,11 +32,11 @@ console.log(counter_(c => c += 3));
 console.log(counter_(c => c ** 2));
 */
 
-const counter_ = (() => {
-    let count = 0;
-    return (callback) => count = callback(count);
-})();
-console.log(counter_(c => ++c));
-console.log(counter_(c => c += 3));
-console.log(counter_(c => c ** 2));
+// const counter_ = (() => {
+//     let count = 0;
+//     return (callback) => count = callback(count);
+// })();
+// console.log(counter_(c => ++c));
+// console.log(counter_(c => c += 3));
+// console.log(counter_(c => c ** 2));
 
