@@ -16,6 +16,12 @@
 
     <script>
         //만들면서 추가하는 함수
+        /*
+             function append({$parent, tagName, text}) {
+            appendNewTag($parent, makeTag(tagName, text));
+        }
+
+        */
         function append(items) {
             if (!items.text) {
                 items = {
@@ -60,7 +66,6 @@
                 text: fn
             });
         });
-
     </script>
 </body>
 
