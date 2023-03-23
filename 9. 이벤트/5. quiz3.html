@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            background: rgb(176, 4, 4);
+            color: rgb(245, 245, 179);
+            width: 150px;
+            height: 50px;
+            font-size: 20px;
+            margin-left: 5px;
+        }
+        a {
+            display: flex;
+            background: lightgray;
+            width: 160px;
+            height: 50px;
+            font-size: 20px;
+            margin: 5px;
+            text-decoration: none;
+            color: black;
+            justify-content: center;
+            align-items: center;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="dropdown">
+        <button class="btn">Drop</button>
+        <div style = "display: none;" id="drop-content">
+            <a href="#">Menu1</a>
+            <a href="#">Menu2</a>
+            <a href="#">Menu3</a>
+            <a href="#">Menu4</a>
+            <a href="#">Menu5</a>
+        </div>
+    </div>
+
+    <script>
+        const $btn = document.querySelector('.dropdown');
+        const $menu = document.querySelector('#drop-content');
+        // console.log($btn);
+
+        $btn.onclick = () => {
+            if($menu.hasAttribute('style')) {
+                $menu.removeAttribute('style');
+            }else {
+                $menu.setAttribute('style', 'display: none;');
+
+            }
+        }
+
+
+    </script>
+</body>
+</html>
