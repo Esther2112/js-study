@@ -46,12 +46,24 @@
         const $menu = document.querySelector('#drop-content');
         // console.log($btn);
 
-        $btn.onclick = () => {
-            if($menu.hasAttribute('style')) {
-                $menu.removeAttribute('style');
-            }else {
-                $menu.setAttribute('style', 'display: none;');
-            }
+        // $btn.onclick = () => {
+        //     if($menu.hasAttribute('style')) {
+        //         $menu.removeAttribute('style');
+        //     }else {
+        //         $menu.setAttribute('style', 'display: none;');
+        //     }
+        // }
+
+        /*
+            mouseover, mouseout         :버블링 있음
+            mouseenter, mouseleave      :버블링 있음
+        */
+
+        $btn.onmouseover = () => {
+            $menu.removeAttribute('style');
+        }
+        $btn.onmouseout = () => {
+            $menu.setAttribute('style', 'display: none;');
         }
 
 
