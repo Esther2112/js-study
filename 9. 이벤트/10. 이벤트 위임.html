@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #fruits {
+            display: flex;
+            list-style: none;
+            padding: 20px;
+            border: 2px solid red;
+        }
+
+        #fruits li {
+            width: 100px;
+            cursor: pointer;
+            background: orange;
+            margin-right: 10px;
+        }
+
+        .active {
+            color: red;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul id="fruits">
+        <li id="apple" class="active">Apple</li>
+        <li id="banana">Banana</li>
+        <li id="grape">Grape</li>
+    </ul>
+
+    <div>선택된 과일: <em class="msg">Apple</em></div>
+
+    <label>
+        # 새로운 과일 추가하기:
+        <input type="text" class="text-box">
+        <button id="add">추가</button>
+    </label>
+
+    <script>
+        const $input = document.querySelector('.text-box');
+        const $btn = document.querySelector('#add');
+        $input.addEventListener('keyup', e => {
+            if (e.key === 'Enter') {
+                if($input.value === ''){
+                    return;
+                }
+                const $newLi = document.createElement('li');
+                $newLi.textContent = $input.value;
+                $fruits.appendChild($newLi);
+            }
+        })
+        $btn.onclick = e => {
+            if($input.value === ''){
+                    return;
+                }
+            const $newLi = document.createElement('li');
+            $newLi.textContent = $input.value;
+            $fruits.appendChild($newLi);
+        }
+        //li태그들에게 일일이 이벤트를 부여하면 
+        //새롭게 추가되는 li들에게도 다시 이벤트를 부여해야 하는 번거로움이 생긴다.
+        //부모태그인 ul에 범용성 있는 이벤트를 부여하여 li들이 버블링을 통해 사용하도록 설정
+
+        //태그에서 클래스 active를 제거하는 함수
+        const removeActive = () => {
+            [...fruits.children].forEach($li => {
+                if ($li.classList.contains('active')) {
+                    $li.classList.remove('active');
+                }
+            });
+        };
+
+        const $fruits = document.querySelector('#fruits');
+        $fruits.onclick = e => {
+            //이벤트 타겟 제한하기
+            // console.log(e.target.matches('#fruits li'));
+            if (!e.target.matches('#fruits li')) {
+                return;
+            }
+
+            // console.log('클릭이벤트 발생!');
+            // console.log(e.target);
+
+            //클릭대상에 클래스 active를 부여하고 그 텍스트를 em.msg 태그에 전달한다
+            //기존의 active가 붙은 태그는 active 제거
+            removeActive();
+            e.target.classList.add('active');
+            const $msg = document.querySelector('.msg');
+            $msg.textContent = e.target.textContent;
+        };
+    </script>
+</body>
+
+</html>
