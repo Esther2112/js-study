@@ -1,0 +1,29 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "account": "abc1234",
+      "userName": "뚜뚜루",
+      "address": "서울"
+    },
+    {
+      "id": 2,
+      "account": "aaaaa",
+      "userName": "다라랑",
+      "address": "강원도"
+    },
+    {
+      "id": 23423,
+      "account": "dsflkj",
+      "userName": "뚯뚜루",
+      "address": "라보"
+    },
+    {
+      "account": "nwod",
+      "userName": "잉",
+      "address": "뭐왜",
+      "id": 23425
+    }
+  ],
+  "boards": []
+}

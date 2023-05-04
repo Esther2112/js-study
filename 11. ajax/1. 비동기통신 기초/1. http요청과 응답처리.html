@@ -30,6 +30,7 @@
             // 3. 요청 전송
             xhr.send();
 
+
             // 4. 응답 정보 확인
             xhr.onload = e => {
                 //응답 데이터 확인
@@ -44,9 +45,22 @@
 
                 //responseJson을 userList 객체로 변환
                 const userList = JSON.parse(responseJson);
-                console.log(userList[0].userName);
-            }
+                // console.log(userList[0].userName);
+
+                //랜더링
+                const $ul = document.querySelector('.content');
+
+                let liString = '';
+                for (const user of userList) {
+                    console.log(user);
+                    const {id, account, userName, address} = user;
+                    $ul.innerHTML += `<li># 계정명: ${account}, 이름: ${userName}, 주소: ${address}</li>`;
+                }
+
+                $ul.innerHTML = liString;
         };
+
+            }
     </script>
 </body>
 </html>
